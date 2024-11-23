@@ -23,8 +23,11 @@
             class="lg:w-[1200px] lg:h-[800px] 2xl:w-[1200px] 2xl:h-[800px] xl:w-[1200px] xl:h-[800px] bg-[#0F121C] flex justify-between shadow-lg rounded overflow-hidden flex-col">
             <div class="bg-[#404749] h-[40px] flex justify-between items-center">
                 <span class="text-white text-[14px] mx-4">LaraMeet</span>
-                <a href="[logout]"><span class="text-white text-[14px] mx-2 hover:text-red-400 cursor-pointer"
-                        title="Logout"><i class="fa-solid fa-circle"></i></span></a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit"><span class="text-white text-[14px] mx-2 hover:text-red-400 cursor-pointer"
+                            title="Logout"><i class="fa-solid fa-circle"></i></span></button>
+                </form>
             </div>
             <!-- Video container here -->
 

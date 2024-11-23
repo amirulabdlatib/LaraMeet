@@ -34,4 +34,19 @@ class AuthController extends Controller
     {
         return view('register');
     }
+
+    public function doRegister()
+    {
+
+    }
+
+    public function doLogout(Request $request)
+    {
+
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+
+        return to_route('login.page');
+    }
 }
