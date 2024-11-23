@@ -2,7 +2,8 @@
     <div class="px-6">
         <div>
             <div class="flex items-center justify-center">
-                <img src="[profileImage]" class="rounded-full w-[30px] h-[30px]">
+                <img src="{{ asset(auth()->user()->profile_image) }}" 
+                    class="rounded-full w-[30px] h-[30px]" alt="{{ auth()->user()->name }}'s profile">
                 <a href="[username]"><span
                         class="px-2 text-white text-[14px] hover:underline cursor-pointer">{{ auth()->user()->name }}</span></a>
             </div>
