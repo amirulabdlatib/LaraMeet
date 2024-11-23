@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function home_page()
+    {
+        return view('home');
+    }
+
 
     public function login_page()
     {
@@ -23,10 +28,10 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             
             $request->session()->regenerate();
-            return to_route('');
+            return to_route('home');
         }
 
-        return back()->withErrors(['email'=>'The provided credentials is not matching in our records.'])->onlyInput('email');
+        return back()->with('error','Email or password is incorrect');
 
     }
 
