@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function home_page()
-    {
-        return view('home');
-    }
-
 
     public function login_page()
     {

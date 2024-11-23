@@ -1,4 +1,12 @@
-{{ Auth::user()->name }}
+@extends('components.layouts.base')
 
-home page
+@section('title','Home | LaraMeet')
 
+@section('content')
+    @include('components.content')
+@endsection
+
+
+@section('form')
+    @include('components.forms.login-form')
+@endsection
