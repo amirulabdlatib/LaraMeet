@@ -3,15 +3,15 @@
     <div class="mx-auto text-white flex-col flex">
         <h1 class="2xl:text-[28px] xl:text-[28px] lg:text-[28px] text-[20px] font-semibold">LaraMeet</h1>
         <h2 class="text-[26px] xl:mt-8 2xl:mt-8 lg:mt-4">Sign up</h2>
-        <input type="text" name="name" placeholder="Name" value=""
-            class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
+        <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"
+            class="my-2 bg-[#8fdcf1] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
         @error('name')
             <div
                 class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
                 {{ $message }}
             </div>
         @enderror
-        <input type="text" name="username" placeholder="Username" value=""
+        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}"
             class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
         @error('username')
             <div
@@ -19,7 +19,7 @@
                 {{ $message }}
             </div>
         @enderror
-        <input type="text" name="email" placeholder="Email" value=""
+        <input type="text" name="email" placeholder="Email" value="{{ old('email') }}"
             class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
         @error('email')
             <div
