@@ -45,7 +45,7 @@
     <div class="flex items-center space-x-6 py-2">
         <div class="shrink-0">
             <img class="h-16 w-16 object-cover rounded-full"
-                src="{{ auth()->user()->profile_image ? asset(auth()->user()->profile_image) : asset('images/user.png') }}"
+                src="{{ auth()->user()->profile_image ? auth()->user()->profile_image : asset('images/user.png') }}"
                 alt="Current profile photo" />
         </div>
         <label class="block">
