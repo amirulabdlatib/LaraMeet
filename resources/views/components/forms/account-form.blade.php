@@ -1,5 +1,6 @@
 <form action="" method="POST" enctype="multipart/form-data" class="mx-auto text-white flex-col flex">
     @csrf
+    @method('PUT')
     <h1 class="2xl:text-[28px] xl:text-[28px] lg:text-[28px] text-[20px] font-semibold">LaraMeet</h1>
     <h2 class="text-[26px] xl:mt-8 2xl:mt-8 lg:mt-4">Settings</h2>
     <input type="text" name="name" placeholder="Name" value="{{ old('name', auth()->user()->name) }}"
@@ -45,12 +46,12 @@
     <div class="flex items-center space-x-6 py-2">
         <div class="shrink-0">
             <img class="h-16 w-16 object-cover rounded-full"
-                src="{{ auth()->user()->profile_image ? auth()->user()->profile_image : asset('images/user.png') }}"
+                src="{{ auth()->user()->profile_image ? Storage::url(auth()->user()->profile_image) : asset('images/user.png') }}"
                 alt="Current profile photo" />
         </div>
         <label class="block">
             <span class="sr-only">Choose profile photo</span>
-            <input type="file" name="file"
+            <input type="file" name="profile_image"
                 class="block w-full text-sm text-slate-500
           file:mr-4 file:py-2 file:px-4
           file:rounded-full file:border-0

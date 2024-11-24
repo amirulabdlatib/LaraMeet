@@ -20,6 +20,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{username}',[HomeController::class,'showProfilePage' ])->name('profile');
     Route::get('/search',[HomeController::class, 'search'])->name('search.user');
     Route::get('/account-settings/{account}',[AccountController::class, 'edit'])->name('account.edit');
-    Route::post('/account-settings/{account}',[AccountController::class, 'update'])->name('account.update');
+    Route::put('/account-settings/{account}',[AccountController::class, 'update'])->name('account.update');
 
 });

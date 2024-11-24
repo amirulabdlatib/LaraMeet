@@ -23,7 +23,7 @@
                         <a href="{{ route('profile', $user->username) }}">
                             <div
                                 class="flex items-center hover:bg-[#202532] cursor-pointer transition duration-150 ease-out hover:ease-in rounded h-[50px]">
-                                <img src="{{ $user->profile_image ? $user->profile_image : asset('images/user.png') }}"
+                                <img src="{{ $user->profile_image ? Storage::url($user->profile_image) : asset('images/user.png') }}"
                                     class="rounded-full w-[30px] h-[30px] ml-2">
                                 <span class="px-2 text-white text-[14px]">{{ $user->name }}</span>
                             </div>
