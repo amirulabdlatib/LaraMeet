@@ -4,7 +4,7 @@
         <h1 class="2xl:text-[28px] xl:text-[28px] lg:text-[28px] text-[20px] font-semibold">LaraMeet</h1>
         <h2 class="text-[26px] xl:mt-8 2xl:mt-8 lg:mt-4">Sign up</h2>
         <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"
-            class="my-2 bg-[#FC2323] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
+            class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
         @error('name')
             <div
                 class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
