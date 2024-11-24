@@ -24,4 +24,19 @@ class HomeController extends Controller
         return view('profile',compact('user','users'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+
+        // Get searched users excluding the current user
+        $users = User::where('id', '!=', Auth::user()->id)
+                    ->where(function($q) use ($query) {
+                        $q->where('username', 'like', "%$query%")
+                        ->orWhere('name', 'like', "%$query%");
+                    })
+                    ->get();
+
+        return view('home', compact('users'));
+    }
+
 }

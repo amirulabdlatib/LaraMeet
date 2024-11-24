@@ -16,4 +16,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home',[HomeController::class, 'home_page'])->name('home');
     Route::post('/logout',[AuthController::class, 'doLogout'])->name('logout');
     Route::get('/profile/{username}',[HomeController::class,'showProfilePage' ])->name('profile');
+    Route::get('/home',[HomeController::class, 'search'])->name('search.user');
 });
