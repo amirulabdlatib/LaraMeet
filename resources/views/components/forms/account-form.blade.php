@@ -1,43 +1,52 @@
 <form action="" method="POST" enctype="multipart/form-data" class="mx-auto text-white flex-col flex">
-    {{-- CSRF token --}}
-
-    <h1 class="2xl:text-[28px] xl:text-[28px] lg:text-[28px] text-[20px] font-semibold">WeMeet</h1>
+    @csrf
+    <h1 class="2xl:text-[28px] xl:text-[28px] lg:text-[28px] text-[20px] font-semibold">LaraMeet</h1>
     <h2 class="text-[26px] xl:mt-8 2xl:mt-8 lg:mt-4">Settings</h2>
-    <input type="text" name="name" placeholder="Name"
+    <input type="text" name="name" placeholder="Name" value="{{ old('name', auth()->user()->name) }}"
         class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
     {{-- Display error message for name --}}
+    @error('name')
+        <div
+            class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
+            {{ $message }}
+        </div>
+    @enderror
 
-    {{-- <div class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
-            [message]
-        </div> --}}
-
-    <input type="text" name="username" placeholder="Username"
+    <input type="text" name="username" placeholder="Username" value="{{ old('name', auth()->user()->username) }}"
         class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
     {{-- Display error message for username --}}
+    @error('username')
+        <div
+            class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
+            {{ $message }}
+        </div>
+    @enderror
 
-    {{-- <div class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
-            [message]
-        </div> --}}
-
-    <input type="text" name="email" placeholder="Email"
+    <input type="text" name="email" placeholder="Email" value="{{ old('name', auth()->user()->email) }}"
         class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[50px] text-[14px] rounded px-4">
     {{-- Display error message for email --}}
-
-    {{-- <div class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
-            [message]
-        </div> --}}
+    @error('email')
+        <div
+            class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
+            {{ $message }}
+        </div>
+    @enderror
 
     <input type="password" name="password" placeholder="Password"
         class="my-2 bg-[#404749] lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[50px] text-[14px] rounded px-4">
     {{-- Display error message for password --}}
-
-    {{-- <div class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
-            [message]
-        </div> --}}
+    @error('password')
+        <div
+            class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
+            {{ $message }}
+        </div>
+    @enderror
 
     <div class="flex items-center space-x-6 py-2">
         <div class="shrink-0">
-            <img class="h-16 w-16 object-cover rounded-full" src="assets/images/user.png" alt="Current profile photo" />
+            <img class="h-16 w-16 object-cover rounded-full"
+                src="{{ auth()->user()->profile_image ? asset(auth()->user()->profile_image) : asset('images/user.png') }}"
+                alt="Current profile photo" />
         </div>
         <label class="block">
             <span class="sr-only">Choose profile photo</span>
@@ -52,19 +61,22 @@
         </label>
     </div>
     {{-- Display error message for profile image --}}
-
-    {{-- <div class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
-           [message]
-        </div> --}}
+    @error('profile_image')
+        <div
+            class="my-0 lg:w-[470px] xl:w-[470px] 2xl:w-[470px] h-[28px] text-[11px] text-[#FC2323] bg-[#F07650]/[0.20] flex items-center px-2 rounded">
+            {{ $message }}
+        </div>
+    @enderror
 
     <button type="submit"
         class="my-4 bg-[#487D27] lg:w-[470px] xl:w-[470px] 2xl:w-[470px]  h-[60px] text-[16px] rounded px-4 font-semibold  hover:bg-[#287D27]">Update</button>
     {{-- Display sucess message --}}
-
-    {{-- <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <span class="font-medium">success</span>
-    </div> --}}
-
+    @if (session('success'))
+        <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+            role="alert">
+            <span class="font-medium">{{ session('success') }}</span>
+        </div>
+    @endif
 
     <div>
         <span class="text-[14px] mx-2">Back to<a href="/home"

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AccountController;
 
 Route::middleware(['guest'])->group(function () {
 
@@ -18,4 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout',[AuthController::class, 'doLogout'])->name('logout');
     Route::get('/profile/{username}',[HomeController::class,'showProfilePage' ])->name('profile');
     Route::get('/search',[HomeController::class, 'search'])->name('search.user');
+    Route::get('/account-settings/{account}',[AccountController::class, 'edit'])->name('account.edit');
+    Route::post('/account-settings/{account}',[AccountController::class, 'update'])->name('account.update');
+
 });
