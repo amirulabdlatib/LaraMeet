@@ -6,7 +6,7 @@
             <div id="results"
                 class="mx-auto xl:my-6 2xl:my-6 lg:my-6 md:my-6 my-0 w-[80%] xl:h-[550px] 2xl:h-[550px] lg:h-[550px] h-full overflow-y-auto space-y-0">
                 @foreach ($users as $user)
-                    <a href="[username]">
+                    <a href="{{ route('profile',$user->username) }}">
                         <div
                             class="flex items-center hover:bg-[#202532] cursor-pointer transition duration-150 ease-out hover:ease-in rounded h-[50px]">
                             <img src="{{ asset($user->profile_image) }}" class="rounded-full w-[30px] h-[30px] ml-2">

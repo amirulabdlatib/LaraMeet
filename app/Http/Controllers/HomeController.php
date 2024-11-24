@@ -16,4 +16,12 @@ class HomeController extends Controller
         return view('home',compact('users'));
     }
 
+    public function showProfilePage(Request $request,$username)
+    {
+        $user = User::where('username',$username)->firstorFail();
+        $users = User::where('id','!=',Auth::user()->id)->get();
+
+        return view('profile',compact('user','users'));
+    }
+
 }
